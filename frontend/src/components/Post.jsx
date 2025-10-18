@@ -12,6 +12,8 @@ import { setPostData } from '../redux/postSlice';
 import { setUserData } from '../redux/userSlice';
 import FollowButton from './FollowButton';
 import { useEffect } from 'react';
+import {LazyLoadImage} from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Post = ({ post }) => {
   const navigate = useNavigate();
@@ -97,7 +99,7 @@ const Post = ({ post }) => {
       <div className='w-full h-[80px] flex justify-between items-center px-[10px]'>
         <div className='flex justify-center items-center md:gap-[20px] gap-[10px]' >
           <div onClick={() => navigate(`/profile/${post?.author?.userName}`)} className='w-[40px] h-[40px] lg:w-[60px]  lg:h-[60px]  border-2 border-black rounded-full cursor-pointer overflow-hidden'>
-            <img src={post?.author?.profileImage || user} alt="" className='w-full h-full object-cover' />
+            <LazyLoadImage effect='blur'  src={post?.author?.profileImage || user} alt="" className='w-full h-full object-cover' />
           </div>
 
           <div className='w-[150px] font-semibold truncate'>
@@ -112,7 +114,7 @@ const Post = ({ post }) => {
       </div>
       <div className='w-[90%]  flex  items-center justify-center'>        {post?.mediaType == "image" && (
         <div onDoubleClick={handleLike} className='w-[90%]  flex items-center justify-center'>
-          <img src={post?.media} alt="" className='w-[80%] rounded-2xl object-cover' />
+          <LazyLoadImage effect='blur' src={post?.media} alt=""  className='w-[80%] rounded-2xl object-cover' />
 
         </div>
 
