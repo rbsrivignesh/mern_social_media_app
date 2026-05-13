@@ -41,7 +41,8 @@ export const signUp = async (req, res) => {
             secure: false,
             sameSite: "Strict",
             maxAge: 10 * 365 * 24 * 60 * 60 * 1000,
-            httpOnly: true
+            httpOnly: true,
+            domain: "rb-social.onrender.com"
 
         })
 
@@ -83,7 +84,8 @@ export const signIn = async (req, res) => {
             secure: false,
             sameSite: "Strict",
             maxAge: 10 * 365 * 24 * 60 * 60 * 1000,
-            httpOnly: true
+            httpOnly: true,
+            domain: "rb-social.onrender.com"
 
         })
 
